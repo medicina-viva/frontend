@@ -1,0 +1,68 @@
+.header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	height: 70px;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	position: fixed;
+	border-bottom: 3px solid #1f8acc;
+	background-color: #fff;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.header .logoWrap {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 24px;
+	text-decoration: none;
+	color: "#1f8acc";
+	cursor: pointer;
+}
+
+.menu {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.menu ul {
+	display: flex;
+	margin-right: 80px;
+}
+
+.menu ul li {
+	display: flex;
+	margin-right: 10%;
+	font-size: 16px;
+	padding: 5px;
+}
+
+.menu ul li:hover {
+	color: #fff;
+	cursor: pointer;
+	background-color: #46c8bb;
+	border-radius: 8px;
+}
+
+.loginLink {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	color: #fff;
+	background-color: #1f8acc;
+	padding: 5px;
+	margin-right: 18px;
+	border-radius: 8px;
+}
+
+.loginLink:hover {
+	cursor: pointer;
+	background-color: #46c8bb;
+}
