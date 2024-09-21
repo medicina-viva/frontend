@@ -1,15 +1,17 @@
 import { useTheme } from "@emotion/react";
-import { Box, IconButton, InputBase, Link } from "@mui/material";
+import { Box, Button, IconButton, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import { tokens } from "../../theme";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Topbar = () => {
   const theme = useTheme();
   const location = useLocation();
+  const navigate = useNavigate();
+
   let navegation = ``;
   const colors = tokens(theme.palette.mode);
   const locationLength = location.pathname.split("/").length - 2;
@@ -18,6 +20,11 @@ const Topbar = () => {
   for (let i = 2; i <= locationLength; i++) {
     navegation += `${location.pathname.split("/")[i]}/`;
   }
+
+  const handleNavigate = (page) => {
+    const path = `${location.pathname.split(page)[0]}${page}/`;
+    navigate(path);
+  };
 
   return (
     <header
@@ -67,7 +74,6 @@ const Topbar = () => {
               },
             }}
           >
-            {" "}
             <PersonOutlinedIcon />
           </IconButton>
           <IconButton
@@ -99,7 +105,27 @@ const Topbar = () => {
         >
           {currentLocation}
         </h1>
-        <Link>{navegation}</Link>
+        <Box>
+          {navegation.split("/").map(
+            (elem, index) =>
+              index < navegation.split("/").length - 1 && (
+                <Button
+                  key={index}
+                  onClick={() => handleNavigate(elem)}
+                  sx={{
+                    margin: 0,
+                    padding: 0,
+                    border: "none",
+                    outline: "none",
+                    textTransform: "lowercase",
+                    color: `${colors.primary.default}`,
+                  }}
+                >
+                  {`${elem}/`}
+                </Button>
+              )
+          )}
+        </Box>
       </Box>
     </header>
   );

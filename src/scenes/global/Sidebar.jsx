@@ -1,25 +1,14 @@
-import { Box, IconButton, Link, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import { tokens } from "../../theme";
 import { useTheme } from "@emotion/react";
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
+import { Link } from "react-router-dom";
 
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
-import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
-import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
-import HealthAndSafetyIcon from '@mui/icons-material/HealthAndSafety';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-
+import HealthAndSafetyIcon from "@mui/icons-material/HealthAndSafety";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -78,22 +67,21 @@ const Sidebar = () => {
           <Box display="flex" justifyContent="center" alignItems="center">
             {!isCollapsed && (
               <Link
-                href="/patients/dashboard/"
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                ml="15px"
-                mr="8px"
+                to="/patients/dashboard/"
                 style={{
                   color: "#1f8acc",
-                }}
-                sx={{
-                  "&:hover": {
-                    cursor: "pointer",
-                  },
+                  marginLeft: "15px",
+                  marginRight: "10px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
                 }}
               >
-                <img width="75px" src="../../assets/img/logo.png" />
+                <img
+                  alt="User profile"
+                  width="75px"
+                  src="../../assets/img/logo.png"
+                />
                 <h5
                   style={{
                     margin: "0",
@@ -136,14 +124,14 @@ const Sidebar = () => {
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
-              to="/"
+              to="/patients/dashboard/"
               icon={<DashboardIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Consultas"
-              to="/team"
+              to="/patients/consultations/"
               icon={<HealthAndSafetyIcon />}
               selected={selected}
               setSelected={setSelected}

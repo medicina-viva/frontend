@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
-import Layout from "../../global/Layout";
 
 const PatientDashboard = () => {
-  return <Layout>
-    <Box padding="20px"> 
+  return (
+    <Box padding="20px">
+      <h2>Olá esssa é a dashboard</h2>
     </Box>
-  </Layout>;
+  );
 };
 
 export default PatientDashboard;
