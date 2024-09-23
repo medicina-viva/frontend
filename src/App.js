@@ -12,7 +12,6 @@ import PatientDashboard from "./scenes/patients/dashboard";
 import NotFound from "./scenes/notFound";
 import PatientConsultation from "./scenes/patients/consultation";
 import Layout from "./scenes/global/Layout";
-import ScheduleConsultation from "./scenes/patients/consultation/schedule";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -46,11 +45,6 @@ function App() {
                   <Route
                     path="/patients/consultations"
                     element={<PatientConsultation />}
-                  />
-
-                  <Route
-                    path="/patients/consultations/schedule"
-                    element={<ScheduleConsultation />}
                   />
                 </Routes>
               </Layout>
