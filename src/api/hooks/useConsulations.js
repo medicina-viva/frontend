@@ -1,10 +1,17 @@
 import { useCallback } from "react";
-import { fetchConsultations } from "../services/consultation-service";
+import {
+  fetchConsultations,
+  fetchSchedules,
+} from "../services/consultation-service";
 
-export const useConsultations= () => {
-  const getConsulatations = useCallback(() => {
+export const useConsultations = () => {
+  const getConsultations = useCallback(() => {
     return fetchConsultations();
   }, []);
 
-  return { getConsulatations };
+  const getSchedules = useCallback(() => {
+    return fetchSchedules();
+  }, []);
+
+  return { getConsultations, getSchedules };
 };
